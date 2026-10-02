@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-arabic: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+    --font-display: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* 3D Book & Paper Physical Simulation */
+.perspective-1800 {
+  perspective: 1800px;
+}
+
+.perspective-2400 {
+  perspective: 2400px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.book-shadow {
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.page-spine-shadow-left {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0) 25%);
+}
+
+.page-spine-shadow-right {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.08) 12%, rgba(0, 0, 0, 0) 25%);
+}
+
+.paper-stack-edge {
+  box-shadow:
+    3px 0 0 #e6decb,
+    6px 0 0 #d9cfba,
+    9px 0 0 #cdc2ab,
+    12px 0 0 #bfb399,
+    15px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.paper-stack-edge-left {
+  box-shadow:
+    -3px 0 0 #e6decb,
+    -6px 0 0 #d9cfba,
+    -9px 0 0 #cdc2ab,
+    -12px 0 0 #bfb399,
+    -15px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+/* Gold Foil & Ornamental Accents */
+.gold-foil-text {
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 40%, #fff2a3 70%, #aa8012 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border {
+  border-image: linear-gradient(to bottom right, #f6d365, #fda085, #d4af37, #fef9d7) 1;
+}
+
+/* Custom Scrollbar for Quran Reading */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 9999px;
+}
+/* 3D Physical Paper Page Flip Animation Keyframes */
+@keyframes pageFlipNext {
+  0% {
+    transform: rotateY(0deg) skewY(0deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  30% {
+    transform: rotateY(-50deg) skewY(-2.5deg) scale(1.02);
+    box-shadow: -15px 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  60% {
+    transform: rotateY(-110deg) skewY(-1.8deg) scale(1.02);
+    box-shadow: -25px 25px 45px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    transform: rotateY(-180deg) skewY(0deg);
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes pageFlipPrev {
+  0% {
+    transform: rotateY(0deg) skewY(0deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  30% {
+    transform: rotateY(50deg) skewY(2.5deg) scale(1.02);
+    box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  60% {
+    transform: rotateY(110deg) skewY(1.8deg) scale(1.02);
+    box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    transform: rotateY(180deg) skewY(0deg);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.animate-page-flip-next {
+  animation: pageFlipNext 1100ms cubic-bezier(0.25, 0.9, 0.25, 1) forwards;
+}
+
+.animate-page-flip-prev {
+  animation: pageFlipPrev 1100ms cubic-bezier(0.25, 0.9, 0.25, 1) forwards;
+}
+

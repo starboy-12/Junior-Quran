@@ -1,0 +1,7 @@
+{
+  "name": "Mushaf 3D Qur'an Digital & Iqro Interaktif",
+  "description": "Mushaf Al-Qur'an 3D digital interaktif dengan navigasi halaman realistis, variasi tema warna, anotasi tadabbur, audio tajwid, Iqro 1-6 anak, dan sinkronisasi akun.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
